@@ -1,3 +1,4 @@
+'use strict'
 //Clase que lanza un proceso de nodejs
 
 //child_process.fork(): spawns a new Node.js process and invokes a specified module

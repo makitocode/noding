@@ -1,3 +1,4 @@
+'use strict'
 //Proceso hijo, listener de mensajes del proceso padre
 process.on('message', (message)=> { 
     //El mensaje llega en formato json https://nodejs.org/api/process.html 

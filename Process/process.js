@@ -1,3 +1,4 @@
+'use strict'
 //Clase para lanzar un proceso de otro programa (Cat)
 
 //Spawn permite lanzar un proceso desde cualquier programa

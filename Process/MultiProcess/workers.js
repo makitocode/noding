@@ -1,3 +1,5 @@
+'use strict'
+
 //Listener de mensajes
 process.on('message', (d)=> { 
     // ---> array [1...x] suma todos los elementos del arreglo
