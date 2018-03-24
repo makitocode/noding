@@ -1,7 +1,7 @@
 //Listener de mensajes
 process.on('message', (d)=> { 
     // ---> array [1...x] suma todos los elementos del arreglo
-    var result = d.arreglo.reduce((a,x)=> a+x); 
+    var result = d.array.reduce((a,x)=> a+x); 
     process.send({result: result});
     //process.exit([code])
     //Ends the process with the specified code. 
