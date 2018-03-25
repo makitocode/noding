@@ -1,6 +1,6 @@
 # CAchat
 
-This respositories contains examples of node js with socket.io. In this case, the example its a web chat.
+This respositories contains examples of node js with socket.io. In this case, the example is a web chat.
 
 ::::::::: Download and play
 
@@ -11,12 +11,11 @@ $ npm install
 
 ## Run app
 ```
-$ hotnode main
+$ hotnode server.js //for dev
 ```
 or 
 ```
-$ node main
+$ node server.js
 ```
 ## Go to
-http:localhost:2018 voalá :+1:
-
+http:localhost:2018 --> voalá :+1:
