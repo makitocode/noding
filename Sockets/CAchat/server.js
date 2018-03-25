@@ -8,6 +8,13 @@ var server = require('http').Server(app);
 //al objeto 'socket.io' le pasamos el servidor creado con express
 var io = require('socket.io')(server);
 
+
+var messages = [{
+    id: 1,
+    texto: 'hey hey hey!',
+    autor: 'Miguel González'
+}];
+
 app.use(express.static('Public'));
 //Cuando el app reciba un get en la ruta raíz realice la sgte función
 app.get('/', function(req, resp){
@@ -18,11 +25,15 @@ app.get('/', function(req, resp){
 io.on('connection', (socket)=> {
     console.log('Someone has connected');
     //Emite el mensaje con la data
-    socket.emit('messages', {
-        id: 1,
-        texto: 'hey hey hey!',
-        autor: 'Miguel González'
+    socket.emit('messages', messages)
+
+    socket.on('new-message', (data)=>{
+        //Aquí se trabaja la data, se almacena en alguna bd etc...
+        messages.push(data);
+        io.sockets.emit('messages', messages);
     })
+
+    
 });
 
 //********************************************************** */

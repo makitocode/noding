@@ -11,5 +11,11 @@
 <body>
     <h1>Socket App Client</h1>
     <div id="messages"></div>
+    <br>
+    <form onsubmit="return addMessage(this)">
+        <input type="text" id="nombreUsuario" placeholder="Tu nombre">
+        <input type="text" id="texto" placeholder="Cuéntanos algo"> 
+        <input type="submit" value="Enviar mensaje"> 
+    </form>
 </body>
 </html>

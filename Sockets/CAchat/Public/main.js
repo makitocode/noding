@@ -9,9 +9,20 @@ socket.on('messages', (data)=>{
 
 //Plantilla hecha a mano para la interfaz del chat
 function render(data){
-    var html = `<div>
-                    <strong>${data.autor}</strong>
-                    <em>${data.texto}</em>
-                </div>`;
+    var html = data.map(function(item, index){
+        return(`<div>
+                <strong>${item.autor}</strong>
+                <em>${item.texto}</em>
+                </div>`);
+    }).join(" ");
     document.getElementById('messages').innerHTML = html;
+}
+
+function addMessage(e){
+    var payload = {
+        autor: document.getElementById('nombreUsuario').value,
+        texto: document.getElementById('texto').value
+    };
+    socket.emit('new-message', payload);
+    return false;
 }
