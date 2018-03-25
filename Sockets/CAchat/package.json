@@ -1,0 +1,25 @@
+{
+  "name": "cachat",
+  "version": "0.0.1",
+  "description": "node chat example from Carlos Azaustre with socket.io",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makitodev/noding.git"
+  },
+  "keywords": [
+    "socket.io",
+    "nodejs",
+    "chat"
+  ],
+  "author": "Miguel Angel González",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makitodev/noding/issues"
+  },
+  "homepage": "https://github.com/makitodev/noding#readme"
+}
