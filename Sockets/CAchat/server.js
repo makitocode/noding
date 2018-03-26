@@ -17,8 +17,8 @@ var messages = [{
 
 app.use(express.static('Public'));
 //Cuando el app reciba un get en la ruta raíz realice la sgte función
-app.get('/', function(req, resp){
-    resp.status(200).send('Cachat runnig -> port 2018 :) ');
+app.get('/iot/subscribe', function(req, resp){
+    resp.status(200).send('IoT module runnig -> port 2018 :) ');
 });
 
 //Escucha un mensaje que llegue de cualquier cliente cuando se conecta
