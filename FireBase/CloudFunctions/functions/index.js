@@ -1,5 +1,6 @@
 const functions = require('firebase-functions');
-
+const admin = require('firebase-admin');
+admin.initializeApp(functions.config().firebase);
 // // Create and Deploy Your First Cloud Functions
 // // https://firebase.google.com/docs/functions/write-firebase-functions
 //
@@ -7,6 +8,6 @@ const functions = require('firebase-functions');
 //  response.send("Hello from Firebase!");
 // });
 
-// exports.db = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+exports.dbUserOnCreate = functions.database.ref('dbtest/user/{id}').onWrite(event => {
+    console.log(`USER: Ingresa al método Onwrite: ${event.data.val()}`);
+});
