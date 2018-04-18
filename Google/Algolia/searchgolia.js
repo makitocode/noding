@@ -3,7 +3,7 @@
 //Algolia search lib
 const algoliasearch = require('algoliasearch');
 //Initialice algolia
-const algolia = algoliasearch('appId','appkey');
+const algolia = algoliasearch('appid','appkey');
 
 //Initialize Algolia index
 const index = algolia.initIndex("user");
@@ -15,6 +15,7 @@ index.addObjects(usersJSON, function(err, content) {
       console.error(`Error: ${err}`);
     console.log(`Datos enviados a algolia correctamente. ${content}`);
   });
+
 
 
 

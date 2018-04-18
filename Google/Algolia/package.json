@@ -1,0 +1,17 @@
+{
+  "name": "algolia",
+  "version": "1.0.0",
+  "description": "dummy for do great things with algolia search.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "algolia"
+  ],
+  "author": "Miguel Angel González",
+  "license": "MIT",
+  "dependencies": {
+    "algoliasearch": "^3.27.0"
+  }
+}
