@@ -1,0 +1,37 @@
+[
+    {
+        "fullname": "Jose Luis",
+        "username": "jocsito",
+        "age": 32
+    },
+    {
+        "fullname": "Miguel Angel",
+        "username": "makito",
+        "age": 30
+    },
+    {
+        "fullname": "Suad Fonseca",
+        "username": "suata",
+        "age": 30
+    },
+    {
+        "fullname": "Julian Franky",
+        "username": "Julian",
+        "age": 30
+    },
+    {
+        "fullname": "Juan David",
+        "username": "juanito",
+        "age": 30
+    },
+    {
+        "fullname": "Carolina",
+        "username": "minina",
+        "age": 30
+    },
+    {
+        "fullname": "Junita Ramírez",
+        "username": "juani",
+        "age": 20
+    }
+]
