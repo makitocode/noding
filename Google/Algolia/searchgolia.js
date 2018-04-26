@@ -22,4 +22,11 @@ index.search('cath', function(err, content) {
   console.log(content.hits);
 });
 
-
+//FIlters by Category
+// index.search({
+//   query: '',
+//   facets: ['category', 'author'],
+//   facetingAfterDistinct: true
+// }).then(res => {
+//   console.log(res);
+// });
