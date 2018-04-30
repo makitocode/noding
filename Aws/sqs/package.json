@@ -1,0 +1,18 @@
+{
+  "name": "sqsnode",
+  "version": "1.0.0",
+  "description": "Example to connect a sqs service with nodejs",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sqs",
+    "nodejs",
+    "node",
+    "aws-sqs",
+    "aws"
+  ],
+  "author": "Miguel Angel González",
+  "license": "MIT"
+}
