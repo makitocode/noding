@@ -7,14 +7,26 @@ const mongoose = require('mongoose');
 var config = require('./config')
 const queueUrl = config.QueueUrl;
 const Log = require('./model/log');
-//--
+
+
+/*
+* * INITIALIZE * *
+*/
 //Carga las credenciales e inicializa el objeto.
 aws.config.accessKeyId = config.accessKeyId;
 aws.config.secretAccessKey = config.secretAccessKey;
 aws.config.region = config.region;
 // Instantiate SQS.
 const sqs = new aws.SQS();
+//Lib for manage env
+const dotenv = require('dotenv');
+//load values from the .env file in this directory into process.env
+dotenv.load();
+//To use add foe example process.env.VARIABLE
 
+/*
+* * LOGIC * *
+*/
 ///Método que realiza la consulta del mensaje disponible en cola
 function ConsultaryGuardaMensaje(){
     return new Promise((resolve, reject)=>{
