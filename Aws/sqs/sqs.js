@@ -3,9 +3,7 @@
 const aws = require('aws-sdk');
 //Se obtiene la url desde una variable de entorno en el config.js
 var config = require('./config')
-const queueUrl = amznConf.QueueUrl;
-
-
+const queueUrl = config.QueueUrl;
 
 //Método que realiza el envío de mensaje a la cola
 function SQSCrearMensaje(objrequest, objresponse){
@@ -52,15 +50,15 @@ function SQSCrearMensaje(objrequest, objresponse){
 ///Método que realiza la consulta del mensaje disponible en cola
 function SQSConsultarMensaje(objrequest, objresponse){
     //Carga las credenciales e inicializa el objeto.
-    aws.config.accessKeyId = process.env.accessKeyId;
-    aws.config.secretAccessKey = process.env.secretAccessKey;
-    aws.config.region = process.env.region;
+    aws.config.accessKeyId = config.accessKeyId;
+    aws.config.secretAccessKey = config.secretAccessKey;
+    aws.config.region = config.region;
     //aws.config.loadFromPath(__dirname + '/config.json');
     
     // Instantiate SQS.
     const sqs = new aws.SQS();
     //Obtiene la variable del config
-    var visibilityTimeOut = parseInt(amznConf.QueueTiempoProcesamiento);
+    var visibilityTimeOut = parseInt(config.QueueTiempoProcesamiento);
     var params = {
         AttributeNames: [
            "SentTimestamp"
@@ -70,7 +68,7 @@ function SQSConsultarMensaje(objrequest, objresponse){
            "All"
         ],
         QueueUrl: queueUrl,
-        VisibilityTimeout: visibilityTimeOut,
+        VisibilityTimeout: 1000,
         WaitTimeSeconds: 0
     };
     //Consulta mensaje pendiente en la cola
@@ -78,27 +76,12 @@ function SQSConsultarMensaje(objrequest, objresponse){
         if(err) {
             objresponse.end('Error recibiendo mensaje de la cola');
             console.log(`Error recibiendo mensaje de la cola: ${err}`)
-        } 
-        else {
-            var elementosJson = Object.keys(data)
-            console.log(`Propiedades del json: ${elementosJson}`)
-            if(elementosJson.includes('Messages')){
-                console.log('Existen elementos en la cola');
-                var body = data.Messages[0].Body;
-                console.log(`body: ${body}`)
-                var ReceiptHandle = data.Messages[0].ReceiptHandle; 
-                console.log(`receipt-id: ${ReceiptHandle}`)
-                //Items value
-                var valoridVideo = data.Messages[0].MessageAttributes['IdVideo'].StringValue
-                console.log(`idVideo: ${valoridVideo}`)
-                //Send response
-                objresponse.send({idVideo: valoridVideo, idmensaje: ReceiptHandle});    
-            }
-            else{
-                console.log('No existen elementos en la cola');
-                objresponse.send({idVideo: 0});    
-            }
-            
+        } else{
+            var body = data.Messages[0].Body;
+            console.log(`Mensaje de la cola: ${body}`);
+            var ReceiptHandle = data.Messages[0].ReceiptHandle; 
+            console.log(`receipt-id: ${ReceiptHandle}`);
+            objresponse.status(200).send(data);
         } 
     });
 
@@ -130,6 +113,7 @@ function SQSEliminarMensaje(objrequest, objresponse){
         else {
             console.log('Eliminación correcta del mensaje: ${_idMensaje}')
             objresponse.end('success');
+            
         } 
     });
 }

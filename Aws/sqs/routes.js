@@ -1,14 +1,19 @@
 'use strict'
 
-const express = require('express')
-
+const express = require('express');
 //Instancia el objeto router para configurarlo
 const api = express.Router();
+//aws lib
+const sqs = require('./sqs');
+
 
 /*************************************** Queue ******************************/
 //Obtiene mensaje de la cola
-app.get('/msj', sqs.SQSConsultarMensaje);
+api.get('/msj', sqs.SQSConsultarMensaje);
 //Envia mensaje a la cola
-app.post('/msj', sqs.SQSCrearMensaje);
+api.post('/msj', sqs.SQSCrearMensaje);
 //Elimina mensaje de la cola
-app.delete('/msj', sqs.SQSEliminarMensaje)
+api.delete('/msj', sqs.SQSEliminarMensaje)
+
+//Export route module
+module.exports = api

@@ -1,6 +1,9 @@
 module.exports = {
     port: process.env.PORT || 2018,
-    db: process.env.MONGODB || 'mongodb://localhost:2018/viccon',
+    db: process.env.MONGODB || 'mongodb://localhost:27017/LumenLog',
     QueueUrl: '',
-    QueueTiempoProcesamiento: '40' //segundos
+    QueueTiempoProcesamiento: '10', //segundos
+    accessKeyId: "",
+    secretAccessKey:"",
+    region: "us-east"
 }

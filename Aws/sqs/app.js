@@ -14,3 +14,6 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json()); //Para adminitr peticiones con json (body)
 //Para usar el modulo api
 app.use('/api', api);
+
+//Exportar Modulos
+module.exports = app
