@@ -9,9 +9,9 @@ const jwtbiz = require('./jwtbiz');
 
 /*************************************** jwt logic ******************************/
 
-api.get('/jwt', jwtbiz.IniciarSesion);
+api.get('/user', jwtbiz.IniciarSesion);
 
-//api.post('/msj', jwtbiz.methodpost);
+api.post('/user', jwtbiz.CrearUsuario);
 
 
 //Export route module

@@ -13,7 +13,10 @@
   "author": "Miguel González",
   "license": "MIT",
   "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "crypto": "^1.0.1",
     "express": "^4.16.3",
+    "jwt-simple": "^0.5.1",
     "pg": "^7.4.3",
     "sequelize": "^4.37.7"
   }

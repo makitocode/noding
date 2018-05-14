@@ -1,5 +1,12 @@
 'use strict'
 
+//Para usar el modelo hay q importarlo
+const Usuario = require('./model/user')
+//modulo de nodejs para enccriptar el password
+const bcrypt = require('bcrypt-nodejs')
+//modulo de node con funciones de criptografia
+const crypto = require('crypto')
+
 /*************************************** POST ******************************/
 //Obtener Usuario por correo
 //pendiente enviar clave encriptada para validar
@@ -21,7 +28,32 @@ function IniciarSesion(objrequest, objresponse){
     })
 }
 
+
+/*************************************** POST ******************************/
+//Crear usuario
+function CrearUsuario(objrequest, objresponse){
+    var _usuario = new Usuario();
+    _usuario.nombres = objrequest.body.nombres;
+    _usuario.apellidos = objrequest.body.apellidos;
+    _usuario.email = objrequest.body.email;
+    _usuario.clave = objrequest.body.clave;
+
+    //Se almacena el usuario
+    _usuario.save(_usuario).then((_UsuarioGuardado)=>{
+        if(!_UsuarioGuardado)
+            objresponse.status(400).send({mensaje: "Error al crear el usuario"})
+        else
+        {
+            objresponse.status(200).send({usuario: _UsuarioGuardado})
+        }
+    }).catch((err)=>{
+        console.log(`Error creando usuario: ${err}`)
+        objresponse.status(500).send({mensaje: "Error al crear el usuario"})
+    })
+}
+
 //Se exportan los métodos
 module.exports ={
-    IniciarSesion
+    IniciarSesion,
+    CrearUsuario
 }
