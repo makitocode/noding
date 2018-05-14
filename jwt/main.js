@@ -1,7 +1,7 @@
 'use strict'
 
 //Se obtiene el puerto desde una variable de entorno o se seta en 3000 si no se indica nda
-var config = require('./Backend/config')
+var config = require('./config')
 //Referencia al app
 var app = require('./app')
 //db
