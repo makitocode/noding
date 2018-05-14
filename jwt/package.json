@@ -4,6 +4,7 @@
   "description": "example of use jwt with nodejs",
   "main": "main.js",
   "scripts": {
+    "sonar": "node analyse.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
