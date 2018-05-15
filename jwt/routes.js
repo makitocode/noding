@@ -10,7 +10,7 @@ const auth = require('./middleware/auth')
 
 /*************************************** jwt logic ******************************/
 
-api.get('/user/signin', user.SignIn);
+api.post('/user/signin', user.SignIn);
 api.post('/user/signup', user.SignUp);
 
 api.get('/private', auth, (req, res)=>{

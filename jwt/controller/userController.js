@@ -76,8 +76,8 @@ function SignUp(req, res){
 }
 
 function SignIn(req, res){
-    var _idUsuario = req.body.id
-    Usuario.findOne({ where: {id: _idUsuario} }).then((_usuario)=>{
+    var _idUsuario = req.body.email;
+    Usuario.findOne({ where: {email: _idUsuario} }).then((_usuario)=>{
         if(!_usuario){
             res.status(404).send({mensaje: 'El usuario no existe'})
         }
@@ -86,7 +86,7 @@ function SignIn(req, res){
             res.status(200).send({mensaje: 'Usuario logueado exitosamente', token: service.createToken(_usuario)})
         }
     }).catch((err) => {
-        return res.status(500).send({mensaje: 'Error interno del servicio'})
+        return res.status(500).send({mensaje: `Error interno del servicio: ${err}`})
     })
 }
 
