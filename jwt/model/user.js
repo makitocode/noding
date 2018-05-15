@@ -28,21 +28,22 @@ const UsuarioSchema = connection.define('Usuario', {
       timestamps: false,
       freezeTableName: true, //Evita que pluralice el nombre de la BD
       hooks: {
-          beforeCreate: (user)=>{
-            bcrypt.genSalt(10, (err, salt) => {
-                if(err)
-                    throw new Error(err)
-                bcrypt.hash(user.clave, salt, null, (err, hash) => {
-                    if(err)
-                        throw new Error(err)
-                    else{
-                        user.clave = hash  
-                    }
-                })
-            })
-          }
+        //   beforeCreate: SetPassword(this).then(()=> {return true;}).catch(err => {throw new Error(err)})
       }
   });
+
+// function SetPassword(user){
+//     return new Promise((resolve, reject)=>{
+//         bcrypt.genSalt(10, (err, salt) => {   
+//             if (err) reject(err);  
+//             bcrypt.hash(user.clave, salt, null, (err, hash) => {
+//                if (err) reject(err);  
+//                user.clave = hash  
+//                resolve();
+//              })
+//           })
+//     });
+// }
 
 UsuarioSchema.sync({logging: console.log}).then(function(){
     console.log(`Modelo Usuario Actualizado`)
