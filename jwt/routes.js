@@ -4,14 +4,18 @@ const express = require('express');
 //Instancia el objeto router para configurarlo
 const api = express.Router();
 //aws lib
-const jwtbiz = require('./jwtbiz');
-
+const user = require('./controller/userController');
+//middleware
+const auth = require('./middleware/auth')
 
 /*************************************** jwt logic ******************************/
 
-api.get('/user', jwtbiz.IniciarSesion);
+api.get('/user/signin', user.SignIn);
+api.post('/user/signup', user.SignUp);
 
-api.post('/user', jwtbiz.CrearUsuario);
+api.get('/private', auth, (req, res)=>{
+    res.status(200).send({message: 'Tienes acceso'});
+});
 
 
 //Export route module

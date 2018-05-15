@@ -5,5 +5,6 @@ module.exports = {
     Postgres_user: 'postgres',
     Postgres_pass: 'admin',
     Postgres_host: 'localhost',
-    Postgres_port: '5432'
+    Postgres_port: '5432',
+    secret_token: 'miclavedetokens'
 }

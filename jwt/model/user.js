@@ -45,9 +45,11 @@ const UsuarioSchema = connection.define('Usuario', {
   });
 
 UsuarioSchema.sync({logging: console.log}).then(function(){
+    console.log(`Modelo Usuario Actualizado`)
 }).catch((err)=>{
     console.log(`Error sincronizando el modelo Usuario ${err}`)
 })
+
 
 //Para exportar el modelo creado
 module.exports = UsuarioSchema 
