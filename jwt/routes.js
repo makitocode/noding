@@ -45,12 +45,20 @@ key.setOptions({encryptionScheme: 'pkcs1'});
 api.post('/user/signin', user.SignIn);
 api.post('/user/signup', user.SignUp);
 
-api.get('/private', (req, res)=>{
-    const sample = 'KJ2QwEhWuLSZuDpUePexx4V8K2rG+IQ372o0Ceo+i3747BfgP292pgCAeeUAXVy+WiW1cbbiTikn18SwPH5syUjD8j6eOpkKs194vJWrsbiupoabw9GBb5FKlORywQMcz2+HB4IVBJ38nIpBBhYA7QByiHKaCSh17nRk6a/loo5q8EF+ABVZ/wrNTnRuYLA/PixYW/7RljDaNdxq3xoyrJYlqMj+wbqfZGZBXbAsWlxk9ErY3U+2OddwMIdyoGAexTFzuHH+pgjVlEj9IPQK4n4Gap4k7Rp5GiU4DHQUPUGa75jnl9lh53LvNEIrp1phUyOQa0pgbKIgVrtVbWSN8w==';
-
-    const descifrado = descifrar(sample);
-    console.log(descifrado.toString('utf8'));
+api.get('/private', auth, (req, res)=>{
     res.status(200).send({message: 'Tienes acceso'});
+});
+
+api.post('/comprar', auth, (req, res)=>{
+    const data = req.body.data;
+    try{
+        const descifrado = descifrar(data);
+        res.status(200).send({message: "El pago se realizó exitosamente"});
+    }
+    catch (e) {
+        res.status(403).send({message: 'Se produjo un error. Por favor vuelva a intentarlo'});
+    }
+    res.status(200).send({message: 'Pago recibido'})
 });
 
 function descifrar(cipherText){
