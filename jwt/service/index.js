@@ -35,4 +35,4 @@ function decodeToken(token){
 module.exports = {
     createToken,
     decodeToken
-}
+};
