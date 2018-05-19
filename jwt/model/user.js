@@ -1,14 +1,12 @@
-'user strict'
-
 //modulo de nodejs para enccriptar el password
-const bcrypt = require('bcrypt-nodejs')
+const bcrypt = require('bcrypt-nodejs');
 //modulo de node con funciones de criptografia
-const crypto = require('crypto')
+const crypto = require('crypto');
 //Se obtiene el puerto desde una variable de entorno o se seta en 3000 si no se indica nda
-var config = require('../config')
+var config = require('../config');
 
 //db
-const Sequelize = require('sequelize')
+const Sequelize = require('sequelize');
 const connection = new Sequelize(config.Postgres_db, config.Postgres_user, config.Postgres_pass, 
                   {
                     host: config.Postgres_host,
@@ -49,8 +47,8 @@ UsuarioSchema.sync({logging: console.log}).then(function(){
     console.log(`Modelo Usuario Actualizado`)
 }).catch((err)=>{
     console.log(`Error sincronizando el modelo Usuario ${err}`)
-})
+});
 
 
 //Para exportar el modelo creado
-module.exports = UsuarioSchema 
+module.exports = UsuarioSchema ;
