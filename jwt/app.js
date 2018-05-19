@@ -2,6 +2,7 @@
 //Permite el tratamiento de respuesta y mapeo de los body en las peticiones HTTP
 const express = require('express')
 const bodyParser = require('body-parser')
+
 //Se instancia el servicio
 const app = express()
 //Instancia el archivo de rutas
