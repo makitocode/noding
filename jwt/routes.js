@@ -42,6 +42,13 @@ const key = new NodeRSA(privateKey);
 key.setOptions({encryptionScheme: 'pkcs1'});
 /*************************************** jwt logic ******************************/
 
+api.use(function(req, res, next) {
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header('Access-Control-Allow-Methods', 'DELETE, PUT, GET, POST');
+   res.header("Access-Control-Allow-Headers", "Content-Type, X-Amz-Date, Authorization, X-Api-Key, Origin, X-Requested-With, Accept");
+   next();
+});
+
 api.post('/user/signin', user.SignIn);
 api.post('/user/signup', user.SignUp);
 
@@ -52,7 +59,9 @@ api.get('/private', auth, (req, res)=>{
 api.post('/comprar', auth, (req, res)=>{
     const data = req.body.data;
     try{
+        console.log('datos', data);
         const descifrado = descifrar(data);
+        console.log('datos descifrados', descifrado);
         res.status(200).send({message: "El pago se realizó exitosamente"});
     }
     catch (e) {
