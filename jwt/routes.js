@@ -58,7 +58,6 @@ api.post('/comprar', auth, (req, res)=>{
     catch (e) {
         res.status(403).send({message: 'Se produjo un error. Por favor vuelva a intentarlo'});
     }
-    res.status(200).send({message: 'Pago recibido'})
 });
 
 function descifrar(cipherText){

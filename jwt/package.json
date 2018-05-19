@@ -20,6 +20,7 @@
     "moment": "^2.22.1",
     "node-rsa": "^1.0.0",
     "pg": "^7.4.3",
-    "sequelize": "^4.37.7"
+    "sequelize": "^4.37.7",
+    "sonarqube-scanner": "^2.0.2"
   }
 }
