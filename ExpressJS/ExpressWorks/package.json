@@ -1,0 +1,23 @@
+{
+  "name": "expressworks",
+  "version": "1.0.0",
+  "description": "workshop that will teach you basics of Express.js",
+  "main": "helloworld.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/makitodev/noding/tree/master/ExpressJS/ExpressWorks"
+  },
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "author": "Miguel Angel González",
+  "license": "MIT",
+  "dependencies": {
+    "colors": "^1.3.3",
+    "express": "^4.16.4"
+  }
+}

@@ -35,3 +35,7 @@ expressworks
 ```bash
 expressworks verify program.js
 ```
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
